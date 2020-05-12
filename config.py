@@ -11,7 +11,7 @@ bind_nonsecure = True # Set to false to only use SSL
 bind_pairs = (
     # for a docker setup, you will probably need to use 0.0.0.0.
     #("0.0.0.0", 8080),
-    ("127.0.0.1", 8080),
+    ("0.0.0.0", 8080),
 )
 
 logging_config = {
@@ -40,6 +40,46 @@ watch_socket_dirs = True
 # Game configs
 # %n in paths is replaced by the current username
 games = OrderedDict([
+    ("dcss-0.24-zh", dict(
+        name = "DCSS 0.24-zh",
+        crawl_binary = "/bin/crawl-stable-launcher.sh",
+        send_json_options = True,
+        pre_options  = [ "0.24-zh" ],
+        rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-0.24-zh/",
+        macro_path = "%%CHROOT_RCFILESDIR%%/crawl-0.24-zh/",
+        morgue_path = "%%CHROOT_MORGUEDIR%%/%n/",
+        morgue_url = "http://dobrazupa.org/morgue/%n/",
+        inprogress_path = "%%CHROOT_INPROGRESSDIR%%/crawl-24-zh/",
+        ttyrec_path = "%%CHROOT_TTYRECDIR%%/%n/",
+        socket_path = "%%CHROOT_WEBDIR%%/sockets")),
+    ("spr-0.24-zh", dict(
+        name = "Sprint 0.24-zh",
+        crawl_binary = "/bin/crawl-stable-launcher.sh",
+        send_json_options = True,
+        pre_options  = [ "0.24-zh" ],
+        rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-0.24-zh/",
+        macro_path = "%%CHROOT_RCFILESDIR%%/crawl-0.24-zh/",
+        morgue_path = "%%CHROOT_MORGUEDIR%%/%n/",
+        morgue_url = "http://dobrazupa.org/morgue/%n/",
+        inprogress_path = "%%CHROOT_INPROGRESSDIR%%/crawl-24-zh-sprint/",
+        ttyrec_path = "%%CHROOT_TTYRECDIR%%/%n/",
+        socket_path = "%%CHROOT_WEBDIR%%/sockets",
+        options = ["-sprint"])),
+    ("tut-0.24-zh", dict(
+        name = "Tutorial 0.24-zh",
+        crawl_binary = "/bin/crawl-stable-launcher.sh",
+        send_json_options = True,
+        pre_options  = [ "0.24-zh" ],
+        rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-0.24-zh/",
+        macro_path = "%%CHROOT_RCFILESDIR%%/crawl-0.24-zh/",
+        morgue_path = "%%CHROOT_MORGUEDIR%%/%n/",
+        morgue_url = "http://dobrazupa.org/morgue/%n/",
+        inprogress_path = "%%CHROOT_INPROGRESSDIR%%/crawl-24-zh-tut/",
+        ttyrec_path = "%%CHROOT_TTYRECDIR%%/%n/",
+        socket_path = "%%CHROOT_WEBDIR%%/sockets",
+        options = ["-tutorial"])),
+
+ 
     ("dcss-0.24", dict(
         name = "DCSS 0.24",
         crawl_binary = "/bin/crawl-stable-launcher.sh",
